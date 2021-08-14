@@ -1,1 +1,2 @@
-# Modelamiento Y Simulacion Antonio Andres Giler Macias
+# Modelamiento Y Simulacion
+## Autor: Antonio Andres Giler Macias
