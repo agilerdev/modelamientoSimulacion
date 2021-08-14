@@ -1,0 +1,11 @@
+{
+  "name": "backendmodelamientosimulacion",
+  "version": "1.0.0",
+  "description": "proyecto de modelamiento y simulacion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Antonio Giler",
+  "license": "ISC"
+}
