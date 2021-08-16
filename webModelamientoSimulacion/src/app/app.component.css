@@ -1,0 +1,18 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-container {
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.tituloMenu {
+  padding: 10px;
+}
+.contenido {
+  padding: 1%;
+}
