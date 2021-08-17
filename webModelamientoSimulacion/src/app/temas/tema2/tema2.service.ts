@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root',
 })
-export class Tema1Service {
+export class Tema2Service {
   constructor(private http: HttpClient) {}
 
   // Returns an observable

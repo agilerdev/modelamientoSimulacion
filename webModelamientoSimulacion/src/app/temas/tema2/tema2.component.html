@@ -1,1 +1,34 @@
-<p>tema2 works!</p>
+<mat-card>
+  <h1>Media, mediana y moda</h1>
+  <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+  <div class="file-upload">
+    {{ fileName || "Suba un archivo" }}
+
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      (click)="file.click()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+
+    <br />
+  </div>
+  <br />
+  <h2>Nombre de la columna a analizar</h2>
+  <input matInput (keyup)="onChangeColumna($event)" placeholder="columna" />
+  <br /><br />
+  <br />
+  <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+    Cargar datos
+  </button>
+  <ng-container *ngIf="llegaronDatos">
+    <br />
+    <br />
+    <h3>{{ nombreColumna }}</h3>
+    <p>Media: {{ mediana }}</p>
+    <p>Media: {{ mediana }}</p>
+    <p>Media: {{ mediana }}</p>
+  </ng-container>
+</mat-card>

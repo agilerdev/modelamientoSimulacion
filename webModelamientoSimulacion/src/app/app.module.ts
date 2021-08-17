@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { AboutComponent } from './varios/about/about.component';
     MatListModule,
     MatSidenavModule,
     MatFormFieldModule,
+    MatTableModule,
     MatSelectModule,
     MatCardModule,
     HttpClientModule,

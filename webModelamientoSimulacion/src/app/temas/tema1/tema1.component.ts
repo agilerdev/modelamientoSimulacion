@@ -7,7 +7,6 @@ import { Tema1Service } from './tema1.service';
   styleUrls: ['./tema1.component.css'],
 })
 export class Tema1Component implements OnInit {
-  @Input() requiredFileType: string | undefined;
   constructor(private fileUploadService: Tema1Service) {}
   fileName = '';
   file: File | null = null; // Variable to store file
@@ -20,6 +19,8 @@ export class Tema1Component implements OnInit {
     this.file = files[0];
     if (this.file) {
       this.fileName = this.file.name;
+    } else {
+      this.fileName = 'Suba un archivo';
     }
   }
   onUpload() {
@@ -28,14 +29,9 @@ export class Tema1Component implements OnInit {
       .upload(this.file!, `${this.api}`)
       .subscribe((respuesta: any) => {
         this.llegaronDatos = true;
-        this.datosImg = 'http://localhost:3030/images/' + respuesta.datos;
-        this.graficaImg = 'http://localhost:3030/images/' + respuesta.grafica;
-
-        // if (typeof event === 'object') {
-        //   // Short link via api response
-
-        //   this.loading = false; // Flag variable
-        // }
+        this.datosImg = 'http://34.67.213.198:3000/images/' + respuesta.datos;
+        this.graficaImg =
+          'http://34.67.213.198:3000/images/' + respuesta.grafica;
       });
   }
   ngOnInit(): void {}
