@@ -20,7 +20,6 @@ import { Tema3Component } from './temas/tema3/tema3.component';
 import { Tema4Component } from './temas/tema4/tema4.component';
 import { HomeComponent } from './varios/home/home.component';
 import { AboutComponent } from './varios/about/about.component';
-import { FileUploadComponent } from './varios/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { FileUploadComponent } from './varios/file-upload/file-upload.component'
     Tema4Component,
     HomeComponent,
     AboutComponent,
-    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

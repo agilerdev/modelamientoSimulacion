@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root',
 })
-export class FileUploadService {
+export class Tema1Service {
   constructor(private http: HttpClient) {}
 
   // Returns an observable
@@ -13,6 +13,8 @@ export class FileUploadService {
     // Create form data
     const formData = new FormData();
     api = 'http://localhost:3030/api/' + api;
+
+    console.log(file);
 
     // Store form name as "file" with file data
     formData.append('datos', file, file.name);

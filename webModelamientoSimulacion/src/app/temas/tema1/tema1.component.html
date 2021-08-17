@@ -1,5 +1,38 @@
 <mat-card>
   <h1>Extracción de datos</h1>
-  <app-file-upload api="tema1"></app-file-upload>
-  <img src="http://localhost:3030/images/1629088613.058699.svg" />
+  <input type="file" class="file-input" #file (change)="onChange(file.files)" />
+
+  <div class="file-upload">
+    {{ fileName || "Suba un archivo" }}
+
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      (click)="file.click()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+
+    <br />
+  </div>
+  <br />
+  <input matInput (keyup)="onChangeX($event)" placeholder="columna x" />
+  <br /><br />
+  <input matInput (keyup)="onChangeY($event)" placeholder="columna y" />
+  <br />
+  <br />
+  <button mat-raised-button (click)="onUpload()" class="btn btn-success">
+    Cargar datos
+  </button>
+  <br />
+  <ng-container *ngIf="llegaronDatos">
+    <h3>Datos analizados</h3>
+    <br />
+    <img [src]="datosImg" />
+    <br />
+    <h3>Grafica</h3>
+    <br />
+    <img [src]="graficaImg" alt="" />
+  </ng-container>
 </mat-card>
