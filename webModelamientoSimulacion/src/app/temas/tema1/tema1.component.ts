@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Tema1Service } from './tema1.service';
 
 @Component({
@@ -6,14 +8,21 @@ import { Tema1Service } from './tema1.service';
   templateUrl: './tema1.component.html',
   styleUrls: ['./tema1.component.css'],
 })
-export class Tema1Component implements OnInit {
+export class Tema1Component {
   constructor(private fileUploadService: Tema1Service) {}
   fileName = '';
   file: File | null = null; // Variable to store file
   loading: boolean = false; // Flag variable
   llegaronDatos: boolean = false;
-  datosImg: string = '';
-  graficaImg: string = '';
+  base: string = 'promediomovil';
+  nombreX: string = '';
+  nombreY: string = '';
+  api: string = '';
+  displayedColumns: string[] = [];
+
+  dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   onChange(files: any) {
     this.file = files[0];
@@ -28,17 +37,23 @@ export class Tema1Component implements OnInit {
     this.fileUploadService
       .upload(this.file!, `${this.api}`)
       .subscribe((respuesta: any) => {
+        this.displayedColumns = [
+          this.nombreX,
+          this.nombreY,
+          'MMO_3',
+          'MMO_4',
+          'e_MM3',
+          'e_MM4',
+        ];
+        console.log(this.displayedColumns);
+
+        this.dataSource.data = respuesta.datos;
+        this.dataSource.paginator = this.paginator;
+        document.getElementById('hidden')!.style.display = 'block';
         this.llegaronDatos = true;
-        this.datosImg = 'http://34.67.213.198:3000/images/' + respuesta.datos;
-        this.graficaImg =
-          'http://34.67.213.198:3000/images/' + respuesta.grafica;
       });
   }
-  ngOnInit(): void {}
-  base: string = 'tema1';
-  nombreX: string = '';
-  nombreY: string = '';
-  api: string = '';
+
   onChangeX(nombreX: any) {
     this.nombreX = nombreX.target.value;
     this.api = this.base + '/' + nombreX.target.value + '/' + this.nombreY;

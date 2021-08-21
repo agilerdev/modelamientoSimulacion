@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Tema3Service {
+export class Tema4Service {
   constructor(private http: HttpClient) {}
   upload(file: File, api: string): Observable<any> {
     // Create form data

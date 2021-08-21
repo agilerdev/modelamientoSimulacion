@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root',
 })
-export class Tema3Service {
+export class Tema5Service {
   constructor(private http: HttpClient) {}
   upload(file: File, api: string): Observable<any> {
     // Create form data

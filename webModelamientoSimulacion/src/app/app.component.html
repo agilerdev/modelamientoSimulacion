@@ -1,22 +1,52 @@
 <mat-drawer-container class="example-container" [hasBackdrop]="true">
   <mat-drawer #drawer mode="over">
-    <h1 class="center tituloMenu">
-      <button mat-flat-button routerLink="/">Menu</button>
-    </h1>
+    <!-- <div class="center tituloMenu">
+      <button mat-raised-button color="primary" routerLink="/">
+        <h2>Inicio</h2>
+      </button>
+    </div> -->
     <mat-list>
       <mat-list-item>
-        <button mat-button routerLink="/tema1">Extracción de datos</button>
+        <h2>Modulo 1: Pronósticos</h2>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLink="/tema2">Media, mediana y moda</button>
-      </mat-list-item>
-      <mat-list-item>
-        <button mat-button routerLink="/tema3">
-          Números Aleatorios: Cuadrados Medios
+        <button mat-button color="primary" routerLink="/tema1">
+          Promedio móvil
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button routerLink="/tema4">Tema 4</button>
+        <button mat-button color="primary" routerLink="/tema2">
+          Suavizamiento de datos
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema3">
+          Regresion lineal
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema4">
+          Regresion cuadrática
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <h2>Modulo 2: Simulación</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema5">
+          Simulación de Montecarlo
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema6">
+          Simulación de inventario
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema7">
+          Simulación de colas
+        </button>
       </mat-list-item>
     </mat-list>
   </mat-drawer>
@@ -26,7 +56,10 @@
         <button mat-icon-button (click)="drawer.toggle()" aria-label="Menu">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>Modelamiento y simulación</span>
+        <button mat-button routerLink="/">
+          <h2>Modelamiento y simulación</h2>
+        </button>
+        <span></span>
         <span class="example-spacer"></span>
         <button mat-icon-button class="example-icon" aria-label="About">
           <mat-icon>info</mat-icon>

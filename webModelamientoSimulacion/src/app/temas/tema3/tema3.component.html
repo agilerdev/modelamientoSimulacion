@@ -1,51 +1,77 @@
 <mat-card>
-  <h1>Generación de números aleatorios: cuadrados medios</h1>
+  <h1>Regresión lineal</h1>
+  <input
+    type="file"
+    class="file-input"
+    accept=".csv, .xlsx"
+    #file
+    (change)="onChange(file.files)"
+  />
 
+  <div class="file-upload">
+    {{ fileName || "Suba un archivo" }}
+
+    <button
+      mat-mini-fab
+      color="primary"
+      class="upload-btn"
+      (click)="file.click()"
+    >
+      <mat-icon>attach_file</mat-icon>
+    </button>
+
+    <br />
+  </div>
   <br />
-  <h2>Cantidad de números a generar</h2>
-  <input matInput (keyup)="onChangeCantidad($event)" placeholder="cantidad" />
+  <input matInput (keyup)="onChangeX($event)" placeholder="columna tiempo" />
   <br /><br />
-  <h2>Semilla</h2>
-  <input matInput (keyup)="onChangeSeed($event)" placeholder="semilla" />
-  <br /><br />
+  <input matInput (keyup)="onChangeY($event)" placeholder="columna datos" />
   <br />
+  <br />
+
   <button mat-raised-button (click)="onUpload()" class="btn btn-success">
     Cargar datos
   </button>
-  <ng-container *ngIf="llegaronDatos">
-    <br />
-    <br />
-
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-
-      <ng-container matColumnDef="index">
-        <th mat-header-cell *matHeaderCellDef>Index</th>
-        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
-      </ng-container>
-      <!-- Name Column -->
-      <ng-container matColumnDef="X2">
-        <th mat-header-cell *matHeaderCellDef>X2</th>
-        <td mat-cell *matCellDef="let element">{{ element.X2 }}</td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="Xi">
-        <th mat-header-cell *matHeaderCellDef>Xi</th>
-        <td mat-cell *matCellDef="let element">{{ element.Xi }}</td>
+  <br />
+</mat-card>
+<br />
+<br />
+<mat-card id="hidden">
+  <h3>Resultado regresión lineal:</h3>
+  <p>{{ valoresP }}</p>
+  <br />
+  <p>Gráfica:</p>
+  <img [src]="rutaImg" />
+  <br />
+  <p>Tabla de datos:</p>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="Datos x">
+        <th mat-header-cell *matHeaderCellDef>Datos x</th>
+        <td mat-cell *matCellDef="let element">{{ element["Datos x"] }}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="ri">
-        <th mat-header-cell *matHeaderCellDef>ri</th>
-        <td mat-cell *matCellDef="let element">{{ element.ri }}</td>
+      <ng-container matColumnDef="Datos y">
+        <th mat-header-cell *matHeaderCellDef>Datos y</th>
+        <td mat-cell *matCellDef="let element">{{ element["Datos y"] }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Regresión Lineal">
+        <th mat-header-cell *matHeaderCellDef>Regresión Lineal</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element["Regresión Lineal"] }}
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-  </ng-container>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of data"
+    >
+    </mat-paginator>
+  </div>
 </mat-card>

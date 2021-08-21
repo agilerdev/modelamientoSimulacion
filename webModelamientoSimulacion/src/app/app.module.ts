@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,9 @@ import { Tema3Component } from './temas/tema3/tema3.component';
 import { Tema4Component } from './temas/tema4/tema4.component';
 import { HomeComponent } from './varios/home/home.component';
 import { AboutComponent } from './varios/about/about.component';
+import { Tema5Component } from './temas/tema5/tema5.component';
+import { Tema6Component } from './temas/tema6/tema6.component';
+import { Tema7Component } from './temas/tema7/tema7.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +36,9 @@ import { AboutComponent } from './varios/about/about.component';
     Tema4Component,
     HomeComponent,
     AboutComponent,
+    Tema5Component,
+    Tema6Component,
+    Tema7Component,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,8 @@ import { AboutComponent } from './varios/about/about.component';
     MatCardModule,
     HttpClientModule,
     MatProgressBarModule,
+    MatTreeModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

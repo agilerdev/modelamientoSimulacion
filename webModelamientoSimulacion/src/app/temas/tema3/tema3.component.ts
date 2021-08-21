@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Tema3Service } from './tema3.service';
 
 @Component({
@@ -6,31 +8,54 @@ import { Tema3Service } from './tema3.service';
   templateUrl: './tema3.component.html',
   styleUrls: ['./tema3.component.css'],
 })
-export class Tema3Component implements OnInit {
+export class Tema3Component {
   constructor(private fileUploadService: Tema3Service) {}
-  ngOnInit(): void {}
+
+  fileName = '';
+  file: File | null = null; // Variable to store file
+  loading: boolean = false; // Flag variable
   llegaronDatos: boolean = false;
+  base: string = 'regresionlineal';
+  nombreX: string = '';
+  nombreY: string = '';
   api: string = '';
-  base: string = 'numerosAleatorios/cuadradosMedios';
-  dataSource: any = [{}];
-  displayedColumns: string[] = ['index', 'X2', 'Xi', 'ri'];
+  displayedColumns: string[] = [];
+  valoresP: string = '';
+  rutaImg: string = '';
 
-  cantidad: number = 0;
-  seed: number = 0;
+  dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
-  onChangeSeed(seed: any) {
-    this.seed = seed.target.value;
+  onChange(files: any) {
+    this.file = files[0];
+    if (this.file) {
+      this.fileName = this.file.name;
+    } else {
+      this.fileName = 'Suba un archivo';
+    }
   }
-  onChangeCantidad(cantidad: any) {
-    this.cantidad = cantidad.target.value;
-  }
-
   onUpload() {
-    this.api = this.base + '/' + this.cantidad + '/' + this.seed;
-    this.fileUploadService.upload(`${this.api}`).subscribe((respuesta: any) => {
-      this.llegaronDatos = true;
-      this.dataSource = respuesta.resultado;
-      console.log(this.dataSource);
-    });
+    this.api = `${this.base}/${this.nombreY}`;
+    this.loading = !this.loading;
+    this.fileUploadService
+      .upload(this.file!, `${this.api}`)
+      .subscribe((respuesta: any) => {
+        this.displayedColumns = ['Datos x', 'Datos y', 'Regresión Lineal'];
+        console.log(respuesta.dataframe);
+        this.valoresP = respuesta.valores;
+        this.dataSource.data = respuesta.dataframe;
+        this.dataSource.paginator = this.paginator;
+        document.getElementById('hidden')!.style.display = 'block';
+        this.rutaImg = 'http://34.67.213.198:3000/images/' + respuesta.grafica;
+        this.llegaronDatos = true;
+      });
+  }
+
+  onChangeX(nombreX: any) {
+    this.nombreX = nombreX.target.value;
+  }
+  onChangeY(nombreY: any) {
+    this.nombreY = nombreY.target.value;
   }
 }
