@@ -1,31 +1,28 @@
 <mat-card>
   <h1>Regresión lineal</h1>
-  <input
-    type="file"
-    class="file-input"
-    accept=".csv, .xlsx"
-    #file
-    (change)="onChange(file.files)"
-  />
+  <input type="file" class="file-input" accept=".csv, .xlsx" #file (change)="onChange(file.files)" />
 
   <div class="file-upload">
     {{ fileName || "Suba un archivo" }}
 
-    <button
-      mat-mini-fab
-      color="primary"
-      class="upload-btn"
-      (click)="file.click()"
-    >
+    <button mat-mini-fab color="primary" class="upload-btn" (click)="file.click()">
       <mat-icon>attach_file</mat-icon>
     </button>
 
     <br />
   </div>
   <br />
-  <input matInput (keyup)="onChangeX($event)" placeholder="columna tiempo" />
+  <h3>Columna de tiempo</h3>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ingrese el nombre de la columna</mat-label>
+    <input matInput (keyup)="onChangeX($event)" />
+  </mat-form-field>
   <br /><br />
-  <input matInput (keyup)="onChangeY($event)" placeholder="columna datos" />
+  <h3>Columna de datos</h3>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ingrese el nombre de la columna</mat-label>
+    <input matInput (keyup)="onChangeY($event)" />
+  </mat-form-field>
   <br />
   <br />
 
@@ -67,11 +64,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
 
-    <mat-paginator
-      [pageSizeOptions]="[10, 20]"
-      showFirstLastButtons
-      aria-label="Select page of data"
-    >
+    <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons aria-label="Select page of data">
     </mat-paginator>
   </div>
 </mat-card>
