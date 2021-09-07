@@ -1,0 +1,73 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over">
+    <!-- <div class="center tituloMenu">
+      <button mat-raised-button color="primary" routerLink="/">
+        <h2>Inicio</h2>
+      </button>
+    </div> -->
+    <mat-list>
+      <mat-list-item>
+        <h2>Modulo 1: Pronósticos</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema1">
+          Promedio móvil
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema2">
+          Suavizamiento de datos
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema3">
+          Regresion lineal
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema4">
+          Regresion cuadrática
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <h2>Modulo 2: Simulación</h2>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema5">
+          Simulación de Montecarlo
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema6">
+          Simulación de inventario
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button color="primary" routerLink="/tema7">
+          Simulación de colas
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <p>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="drawer.toggle()" aria-label="Menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-button routerLink="/">
+          <h2>Modelamiento y simulación</h2>
+        </button>
+        <span></span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" aria-label="About">
+          <mat-icon>info</mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+    <div class="contenido">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
