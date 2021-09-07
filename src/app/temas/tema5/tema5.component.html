@@ -12,15 +12,27 @@
     <br />
   </div>
   <br />
-  <input matInput (keyup)="onChangeX($event)" placeholder="columna índices" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna índices</mat-label>
+    <input matInput (keyup)="onChangeX($event)" placeholder="" />
+  </mat-form-field>
   <br /><br />
-  <input matInput (keyup)="onChangeY($event)" placeholder="columna datos" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna datos</mat-label>
+    <input matInput (keyup)="onChangeY($event)" placeholder="" />
+  </mat-form-field>
   <br />
   <br />
-  <input matInput (keyup)="onChangeProbabilidades($event)" placeholder="columna probabilidades" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna probabilidades</mat-label>
+    <input matInput (keyup)="onChangeProbabilidades($event)" placeholder="" />
+  </mat-form-field>
   <br />
   <br />
-  <input matInput (keyup)="onChangeSimulaciones($event)" placeholder="cantidad simulaciones" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Cantidad simulaciones</mat-label>
+    <input matInput (keyup)="onChangeSimulaciones($event)" placeholder="" />
+  </mat-form-field>
   <br />
   <br />
   <button mat-raised-button (click)="onUpload()" class="btn btn-success">

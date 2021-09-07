@@ -9,7 +9,7 @@ import { Tema5Service } from './tema5.service';
   styleUrls: ['./tema5.component.css'],
 })
 export class Tema5Component {
-  constructor(private fileUploadService: Tema5Service) {}
+  constructor(private fileUploadService: Tema5Service) { }
   fileName = '';
   file: File | null = null; // Variable to store file
   loading: boolean = false; // Flag variable
@@ -59,7 +59,7 @@ export class Tema5Component {
         this.dataSource1.paginator = this.paginator1;
         this.dataSource2.paginator = this.paginator2;
         document.getElementById('hidden')!.style.display = 'block';
-        this.rutaImg = 'http://34.67.213.198:3000/images/' + respuesta.grafico;
+        this.rutaImg = 'https://mundovirtual.cf/images/' + respuesta.grafico;
         this.llegaronDatos = true;
       });
   }

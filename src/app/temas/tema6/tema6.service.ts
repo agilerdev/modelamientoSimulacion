@@ -10,7 +10,7 @@ export class Tema6Service {
   constructor(private http: HttpClient) { }
   upload(api: string): Observable<any> {
     // Create form data
-    api = 'http://34.67.213.198:3000/api/' + api;
+    api = 'https://mundovirtual.cf/api/' + api;
 
 
     // Store form name as "file" with file data

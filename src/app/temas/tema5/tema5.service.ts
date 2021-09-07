@@ -6,11 +6,11 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root',
 })
 export class Tema5Service {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   upload(file: File, api: string): Observable<any> {
     // Create form data
     const formData = new FormData();
-    api = 'http://34.67.213.198:3000/api/' + api;
+    api = 'https://mundovirtual.cf/api/' + api;
 
     console.log(file);
 

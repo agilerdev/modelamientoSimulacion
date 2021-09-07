@@ -12,9 +12,16 @@
     <br />
   </div>
   <br />
-  <input matInput (keyup)="onChangeX($event)" placeholder="columna tiempo" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna tiempo</mat-label>
+    <input matInput (keyup)="onChangeX($event)" placeholder="" />
+  </mat-form-field>
+
   <br /><br />
-  <input matInput (keyup)="onChangeY($event)" placeholder="columna datos" />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Columna datos</mat-label>
+    <input matInput (keyup)="onChangeY($event)" placeholder="columna datos" />
+  </mat-form-field>
   <br />
   <br />
 

@@ -9,7 +9,7 @@ import { Tema3Service } from './tema3.service';
   styleUrls: ['./tema3.component.css'],
 })
 export class Tema3Component {
-  constructor(private fileUploadService: Tema3Service) {}
+  constructor(private fileUploadService: Tema3Service) { }
 
   fileName = '';
   file: File | null = null; // Variable to store file
@@ -47,7 +47,7 @@ export class Tema3Component {
         this.dataSource.data = respuesta.dataframe;
         this.dataSource.paginator = this.paginator;
         document.getElementById('hidden')!.style.display = 'block';
-        this.rutaImg = 'http://34.67.213.198:3000/images/' + respuesta.grafica;
+        this.rutaImg = 'https://mundovirtual.cf/images/' + respuesta.grafica;
         this.llegaronDatos = true;
       });
   }
