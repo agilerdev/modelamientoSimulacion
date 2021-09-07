@@ -31,6 +31,7 @@ import { AboutComponent } from './varios/about/about.component';
 import { Tema5Component } from './temas/tema5/tema5.component';
 import { Tema6Component } from './temas/tema6/tema6.component';
 import { Tema7Component } from './temas/tema7/tema7.component';
+import { ManualComponent } from './varios/manual/manual.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { Tema7Component } from './temas/tema7/tema7.component';
     Tema5Component,
     Tema6Component,
     Tema7Component,
+    ManualComponent,
   ],
   imports: [
     BrowserModule,

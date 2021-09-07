@@ -8,6 +8,7 @@ import { Tema5Component } from './temas/tema5/tema5.component';
 import { Tema6Component } from './temas/tema6/tema6.component';
 import { Tema7Component } from './temas/tema7/tema7.component';
 import { HomeComponent } from './varios/home/home.component';
+import { ManualComponent } from './varios/manual/manual.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,10 +19,11 @@ const routes: Routes = [
   { path: 'tema5', component: Tema5Component },
   { path: 'tema6', component: Tema6Component },
   { path: 'tema7', component: Tema7Component },
+  { path: 'manual', component: ManualComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
